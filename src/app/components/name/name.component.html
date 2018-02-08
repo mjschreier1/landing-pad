@@ -1,3 +1,12 @@
-<p>
-  name works!
-</p>
+<section *ngIf="hasName">
+  <h2>Hello {{name}}!</h2>
+  <a class="btn btn-floating pulse"><i class="material-icons">people</i></a>
+</section>
+
+<section *ngIf="!hasName">
+  <form #nameForm="ngForm" (ngSubmit)="onSubmit(nameForm)">
+    <label for="name">Hello! Please enter your name:</label>
+    <input type="text" name="name" id="name" [(ngModel)]="name" />
+    <input type="submit" value="submit" id="submit" />
+  </form>
+</section>

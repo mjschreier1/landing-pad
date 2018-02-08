@@ -1,5 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from "@angular/material/input";
+
+import { MatButtonModule, MatCheckboxModule } from "@angular/material";
+
+import { DateService } from './services/date.service'
 
 
 import { AppComponent } from './app.component';
@@ -20,9 +27,14 @@ import { AboutComponent } from './components/about/about.component';
     AboutComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    MatInputModule
   ],
-  providers: [],
+  providers: [DateService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
