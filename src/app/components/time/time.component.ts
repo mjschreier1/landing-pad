@@ -24,6 +24,7 @@ export class TimeComponent implements OnInit {
       parseInt(currentTime.slice(0, 2)) > 12
         ? this.hours12 = (parseInt(currentTime.slice(0, 2)) - 12).toString()
         : this.hours12 = this.hours;
+      if(this.hours12.length === 1) { this.hours12 = `0${this.hours12}` }
       this.minutes = currentTime.slice(3, 5);
       this.seconds = currentTime.slice(6, 8);
     })

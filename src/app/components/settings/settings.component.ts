@@ -14,7 +14,7 @@ export class SettingsComponent implements OnInit {
   }
 
   toggleMilitaryTime() {
-    this._settingsService.militaryTime.next(!this._settingsService.militaryTime)
+    this._settingsService.toggleMilitaryTime()
   }
 
 }
