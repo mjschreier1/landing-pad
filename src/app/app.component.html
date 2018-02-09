@@ -1,4 +1,26 @@
-<main class="container valign-wrapper">
-  <app-name></app-name>
-  <app-time></app-time>
-</main>
+<section id="app">
+  <mat-drawer-container>
+    <mat-drawer #drawer class="drawer">
+      <app-settings></app-settings>
+    </mat-drawer>
+
+    <nav>
+      <mat-toolbar color="primary">
+        <mat-toolbar-row>
+          <span>Landing Pad</span>
+          <span class="spacer"></span>
+          <button mat-icon-button>
+            <mat-icon>info</mat-icon>
+          </button>
+          <button mat-icon-button>
+            <mat-icon (click)="drawer.toggle()">settings</mat-icon>
+          </button>
+        </mat-toolbar-row>
+      </mat-toolbar>
+    </nav>
+    <main>
+      <app-name></app-name>
+      <app-time></app-time>
+    </main>
+  </mat-drawer-container>
+</section>

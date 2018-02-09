@@ -2,9 +2,16 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { MatInputModule } from "@angular/material/input";
 
-import { MatButtonModule, MatCheckboxModule } from "@angular/material";
+import {
+  MatButtonModule,
+  MatCheckboxModule,
+  MatInputModule,
+  MatToolbarModule,
+  MatIconModule,
+  MatSidenavModule,
+  MatSlideToggleModule
+} from "@angular/material";
 
 import { DateService } from './services/date.service'
 
@@ -15,6 +22,8 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { CalendarComponent } from './components/calendar/calendar.component';
 import { NameComponent } from './components/name/name.component';
 import { AboutComponent } from './components/about/about.component';
+import { SettingsComponent } from './components/settings/settings.component';
+import { SettingsService } from './services/settings.service';
 
 
 @NgModule({
@@ -24,7 +33,8 @@ import { AboutComponent } from './components/about/about.component';
     WeatherComponent,
     CalendarComponent,
     NameComponent,
-    AboutComponent
+    AboutComponent,
+    SettingsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,9 +42,13 @@ import { AboutComponent } from './components/about/about.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatCheckboxModule,
-    MatInputModule
+    MatInputModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatSlideToggleModule
   ],
-  providers: [DateService],
+  providers: [DateService, SettingsService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

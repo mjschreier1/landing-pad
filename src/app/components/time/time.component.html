@@ -1,1 +1,7 @@
-<h3>{{time}}</h3>
+<section>
+  <h3 class="headline">
+    <span *ngIf="displayMilitaryTime">{{hours}}</span>
+    <span *ngIf="!displayMilitaryTime">{{hours12}}</span>
+    {{minutes}} {{seconds}}
+  </h3>
+</section>
