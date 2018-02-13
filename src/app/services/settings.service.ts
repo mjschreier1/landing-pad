@@ -3,16 +3,20 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject'
 
 @Injectable()
 export class SettingsService {
-  militaryTimeCounter: number = 0;
-  militaryTime = new BehaviorSubject<boolean>(true)
+  militaryTimeSetting: boolean = localStorage.militaryTimeDefault
+    ? JSON.parse(localStorage.militaryTimeDefault)
+    : false;
+  militaryTime = new BehaviorSubject<boolean>(this.militaryTimeSetting)
 
   constructor() { }
 
   toggleMilitaryTime() {
-    this.militaryTimeCounter % 2 === 0
-      ? this.militaryTime.next(false)
-      : this.militaryTime.next(true)
-    this.militaryTimeCounter++
+    event.preventDefault();
+    this.militaryTime.getValue() === false
+      ? this.militaryTime.next(true)
+      : this.militaryTime.next(false);
+    localStorage.setItem("militaryTimeDefault", this.militaryTime.getValue().toString());
+    this.militaryTimeSetting = this.militaryTime.getValue();
   }
 
 }

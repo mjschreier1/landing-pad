@@ -11,6 +11,7 @@ export class SettingsComponent implements OnInit {
   constructor(private _settingsService: SettingsService) { }
 
   ngOnInit() {
+
   }
 
   toggleMilitaryTime() {
