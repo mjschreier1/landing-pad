@@ -1,4 +1,48 @@
 i {
-  font-size: 5rem;
   color: white;
+}
+
+article i {
+  font-size: 6rem;
+}
+
+main i {
+  font-size: 3rem;
+}
+
+.currentIcon {
+  margin-right: 15px;
+  text-align: center;
+}
+
+.currentConditions {
+  margin-left: 15px;
+}
+
+article {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+article p {
+  margin: 0;
+}
+
+article h2 {
+  color: white;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  text-align: center;
+}
+
+.summary {
+  text-align: center;
+}
+
+.spinner-message {
+  text-align: center;
 }

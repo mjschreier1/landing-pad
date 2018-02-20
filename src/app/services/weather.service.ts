@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
-import { AsyncSubject } from 'rxjs/AsyncSubject';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class WeatherService {
@@ -10,7 +10,7 @@ export class WeatherService {
   apiKey: string = "";
   latitude: string;
   longitude: string;
-  weatherData: AsyncSubject<any> = new AsyncSubject<any>();
+  weatherData: Subject<any> = new Subject<any>();
 
   constructor(public http: HttpClient) {
     navigator.geolocation.getCurrentPosition(position => {
@@ -21,11 +21,38 @@ export class WeatherService {
   }
 
   getWeatherData(): void {
-    this.http.get(`${this.proxy}/${this.apiUrl}/${this.apiKey}/${this.latitude},${this.longitude}`)
-      .subscribe(data => {
-        this.weatherData.next(data);
-        this.weatherData.complete();
-    });
+    const getData = () => {
+      this.http.get(`${this.proxy}/${this.apiUrl}/${this.apiKey}/${this.latitude},${this.longitude}`)
+        .subscribe(data => {
+          this.weatherData.next(data);
+        });
+    };
+
+    setInterval(getData(), 3600000);
   }
 
+  iconSelector(icon): string {
+    let iconValidator = {
+      "clear-day": "wi-day-sunny",
+      "clear-night": "wi-night-clear",
+      "rain": "wi-showers",
+      "snow": "wi-snow-wind",
+      "sleet": "wi-sleet",
+      "wind": this.windSelector(),
+      "fog": this.fogSelector(),
+      "cloudy": "wi-cloudy",
+      "partly-cloudy-day": "wi-day-cloudy",
+      "partly-cloudy-night": "wi-night-alt-cloudy"
+    };
+
+    return iconValidator[icon];
+  }
+
+  windSelector(): string {
+    return
+  }
+
+  fogSelector(): string {
+    return
+  }
 }

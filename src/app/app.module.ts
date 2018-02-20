@@ -11,7 +11,10 @@ import {
   MatToolbarModule,
   MatIconModule,
   MatSidenavModule,
-  MatSlideToggleModule
+  MatSlideToggleModule,
+  MatProgressSpinnerModule,
+  MatDividerModule,
+  MatListModule
 } from "@angular/material";
 
 import { DateService } from './services/date.service';
@@ -49,7 +52,10 @@ import { SettingsComponent } from './components/settings/settings.component';
     MatToolbarModule,
     MatIconModule,
     MatSidenavModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatProgressSpinnerModule,
+    MatDividerModule,
+    MatListModule
   ],
   providers: [DateService, SettingsService, WeatherService],
   bootstrap: [AppComponent]

@@ -1,7 +1,11 @@
 <section id="app">
   <mat-drawer-container>
-    <mat-drawer #drawer class="drawer" mode="push" position="end">
+    <mat-drawer #settingsDrawer class="drawer" mode="push" position="end">
       <app-settings></app-settings>
+    </mat-drawer>
+
+    <mat-drawer #infoDrawer class="drawer" mode="push">
+      <app-about></app-about>
     </mat-drawer>
 
     <nav>
@@ -10,10 +14,10 @@
           <span>Landing Pad</span>
           <span class="spacer"></span>
           <button mat-icon-button>
-            <mat-icon>info</mat-icon>
+            <mat-icon (click)="infoDrawer.toggle()">info</mat-icon>
           </button>
           <button mat-icon-button>
-            <mat-icon (click)="drawer.toggle()">settings</mat-icon>
+            <mat-icon (click)="settingsDrawer.toggle()">settings</mat-icon>
           </button>
         </mat-toolbar-row>
       </mat-toolbar>

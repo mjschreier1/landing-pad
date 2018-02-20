@@ -1,3 +1,41 @@
-<i class="wi wi-night-sleet"></i>
+<article *ngIf="weatherData">
+  <div class="currentIcon">
+    <i class="wi {{ this._weatherService.iconSelector(weatherData.currently.icon) }}"></i>
+    <h2>{{ current.apparentTemperature | number:"1.0-0" }}&deg;</h2>
+  </div>
 
-<a href="https://darksky.net/poweredby/"><img src="../../assets/poweredby-darkbackground.png" alt="Powered by Dark Sky" height="40"></a>
+  <div class="currentConditions">
+    <p><strong>Cloud Cover:</strong> {{ current.cloudCover | percent }}</p>
+    <p><strong>Humidity:</strong> {{ current.humidity | percent }}</p>
+    <p><strong>Chance of Precipitation:</strong> {{ current.precipProbability | percent }}</p>
+    <p><strong>Visibility:</strong> {{ current.visibility === 10 ? "> 10 miles" : current.visibility + " miles" }}</p>
+    <p><strong>Wind:</strong> {{ windDirection }} {{ current.windSpeed | number:"1.0-0" }}mph</p>
+    <p><strong>Wind Gusts:</strong> {{ current.windGust | number:"1.0-0" }}mph</p>
+  </div>
+</article>
+
+<section *ngIf="weatherData" class="summary">
+  <h1>{{ weatherData.daily.summary }}</h1>
+</section>
+
+<main *ngIf="weatherData">
+  <section *ngFor="let day of weatherData.daily.data; index as i" [attr.data-index]="i">
+    <div *ngIf="i < 7">
+      <i class="wi {{ this._weatherService.iconSelector(weatherData.daily.data[i].icon) === 'wi-night-alt-cloudy'
+        ? 'wi-day-cloudy'
+        : this._weatherService.iconSelector(weatherData.daily.data[i].icon) }}"
+      ></i>
+      <h4>{{ day.apparentTemperatureHigh | number:"1.0-0" }} / {{ day.apparentTemperatureLow | number:"1.0-0" }}</h4>
+      <p>{{ day.time * 1000 | date:"EEEE" }}</p>
+    </div>
+  </section>
+</main>
+
+<main *ngIf="!weatherData" class="spinner">
+  <mat-progress-spinner color="accent" mode="indeterminate"></mat-progress-spinner>
+</main>
+<p *ngIf="!weatherData" class="spinner-message">Loading weather data...</p>
+
+<a href="https://darksky.net/poweredby/">
+  <img src="../../assets/poweredby-darkbackground.png" alt="Powered by Dark Sky" height="40">
+</a>
