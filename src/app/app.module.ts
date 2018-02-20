@@ -3,7 +3,6 @@ import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-// import * as Skycons from 'skycons/skycons.js';
 
 import {
   MatButtonModule,
@@ -44,7 +43,6 @@ import { SettingsComponent } from './components/settings/settings.component';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    // Skycons,
     MatButtonModule,
     MatCheckboxModule,
     MatInputModule,

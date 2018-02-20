@@ -1,5 +1,11 @@
 <section *ngIf="hasName">
-  <h2>Hello {{name}}!</h2>
+  <h2>
+    <span *ngIf="militaryHours >= 2 && militaryHours < 4">Hello</span>
+    <span *ngIf="militaryHours >= 4 && militaryHours < 12">Good Morning</span>
+    <span *ngIf="militaryHours >= 12 && militaryHours < 17">Good Afternoon</span>
+    <span *ngIf="militaryHours >= 17 || militaryHours < 2">Good Evening</span>
+    {{name}}
+  </h2>
 </section>
 
 <section *ngIf="!hasName">

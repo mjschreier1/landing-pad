@@ -1,24 +1,31 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { HttpClient } from '@angular/common/http';
+import { AsyncSubject } from 'rxjs/AsyncSubject';
 
 @Injectable()
 export class WeatherService {
-  apiUrl: string = "https://cors-anywhere.herokuapp.com/https://api.darksky.net/forecast";
+  proxy: string = "https://cors-anywhere.herokuapp.com";
+  apiUrl: string = "https://api.darksky.net/forecast";
   apiKey: string = "";
-  latitude: string = "39";
-  longitude: string = "-105";
+  latitude: string;
+  longitude: string;
+  weatherData: AsyncSubject<any> = new AsyncSubject<any>();
 
   constructor(public http: HttpClient) {
     navigator.geolocation.getCurrentPosition(position => {
       this.latitude = position.coords.latitude.toString();
       this.longitude = position.coords.longitude.toString();
+      this.getWeatherData();
     });
   }
 
-  getWeatherData(): Observable<any> {
-    return this.http.get<any>(
-      `${this.apiUrl}/${this.apiKey}/${this.latitude},${this.longitude}`
-    );
+  getWeatherData(): void {
+    this.http.get(`${this.proxy}/${this.apiUrl}/${this.apiKey}/${this.latitude},${this.longitude}`)
+      .subscribe(data => {
+        this.weatherData.next(data);
+        this.weatherData.complete();
+    });
   }
+
 }

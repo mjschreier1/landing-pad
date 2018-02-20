@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DateService } from '../../services/date.service';
 
 @Component({
   selector: 'app-name',
@@ -8,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class NameComponent implements OnInit {
   name: string;
   hasName: boolean = false;
+  militaryHours: number;
 
-  constructor() { }
+  constructor(private _dateService: DateService) { }
 
   ngOnInit() {
+    this._dateService.currentDate.subscribe(currentDate => {
+      this.militaryHours = currentDate.getHours();
+    })
     this.handleName();
   }
 
