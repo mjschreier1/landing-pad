@@ -1,5 +1,9 @@
-i {
+main, .spinner-message, .currentConditions {
   color: white;
+}
+
+.summary, .currentIcon {
+  color: #ff4081;
 }
 
 article i {
@@ -22,15 +26,14 @@ main i {
 article {
   display: flex;
   justify-content: center;
-  margin-bottom: 10px;
 }
 
 article p {
-  margin: 0;
+  margin: 1px 0;
 }
 
 article h2 {
-  color: white;
+  margin-bottom: 10px;
 }
 
 main {
@@ -43,6 +46,21 @@ main {
   text-align: center;
 }
 
+.summary h1 {
+  margin-top: 10px;
+  margin-bottom: 28px;
+}
+
 .spinner-message {
   text-align: center;
+}
+
+a {
+  position: fixed;
+  bottom: 5px;
+  right: 5px;
+}
+
+main section p {
+  margin-bottom: 10px;
 }

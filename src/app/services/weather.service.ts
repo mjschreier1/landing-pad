@@ -38,8 +38,8 @@ export class WeatherService {
       "rain": "wi-showers",
       "snow": "wi-snow-wind",
       "sleet": "wi-sleet",
-      "wind": this.windSelector(),
-      "fog": this.fogSelector(),
+      "wind": "wi-day-windy",
+      "fog": "wi-day-light-wind",
       "cloudy": "wi-cloudy",
       "partly-cloudy-day": "wi-day-cloudy",
       "partly-cloudy-night": "wi-night-alt-cloudy"
@@ -48,11 +48,4 @@ export class WeatherService {
     return iconValidator[icon];
   }
 
-  windSelector(): string {
-    return
-  }
-
-  fogSelector(): string {
-    return
-  }
 }

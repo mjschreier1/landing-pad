@@ -20,12 +20,12 @@ export class WeatherComponent implements OnInit {
       this.current = data.currently;
       this.wb = data.currently.windBearing;
       this.calculateWindDirection(this.wb);
-      console.log(data);
+      console.log(data)
     });
   }
 
   calculateWindDirection(wb): void {
-    if (wb >= 348.75 && wb < 11.25) {this.windDirection = "N"}
+    if (wb >= 348.75 || wb < 11.25) {this.windDirection = "N"}
     else if(wb >= 11.25 && wb < 33.75) {this.windDirection = "NNE"}
     else if(wb >= 33.75 && wb < 56.25) {this.windDirection = "NE"}
     else if(wb >= 56.25 && wb < 78.75) {this.windDirection = "ENE"}

@@ -1,8 +1,8 @@
 <section>
-  <h4 *ngIf="weekday && month && date">{{weekday}}, {{month}} {{date}}</h4>
+  <h4 *ngIf="weekday && month && date">{{ weekday }}, {{ month }} {{ date }}</h4>
   <h3 class="headline">
-    <span *ngIf="displayMilitaryTime">{{hours}}</span>
-    <span *ngIf="!displayMilitaryTime">{{hours12}}</span>
-    {{minutes}} {{seconds}}
+    <span *ngIf="displayMilitaryTime">{{ hours }}</span>
+    <span *ngIf="!displayMilitaryTime">{{ hours12 }}</span>
+    {{ minutes }} {{ seconds }}
   </h3>
 </section>

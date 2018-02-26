@@ -1,6 +1,23 @@
 <article *ngIf="weatherData">
   <div class="currentIcon">
-    <i class="wi {{ this._weatherService.iconSelector(weatherData.currently.icon) }}"></i>
+    <i class="wi
+    {{ weatherData.currently.icon === 'wind' || weatherData.currently.icon === 'fog'
+      ? weatherData.currently.time < weatherData.daily.data[0].sunriseTime
+        || weatherData.currently.time > weatherData.daily.data[0].sunsetTime
+        ? weatherData.currently.cloudCover > .25
+          ? weatherData.currently.icon === 'wind'
+            ? 'wi-night-alt-cloudy-gusts'
+            : 'wi-night-fog'
+          : weatherData.currently.icon === 'wind'
+            ? 'wi-strong-wind'
+            : 'wi-windy'
+        : weatherData.currently.cloudCover > .25
+          ? weatherData.currently.icon === 'wind'
+            ? 'wi-day-cloudy-gusts'
+            : 'wi-day-fog'
+          : this._weatherService.iconSelector(weatherData.currently.icon)
+      : this._weatherService.iconSelector(weatherData.currently.icon)
+    }}"></i>
     <h2>{{ current.apparentTemperature | number:"1.0-0" }}&deg;</h2>
   </div>
 

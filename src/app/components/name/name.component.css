@@ -9,3 +9,14 @@ mat-form-field {
   min-width: 450px;
   margin-top: 40px;
 }
+
+h2 {
+  margin: 0 0 20px;
+  color: #ff4081;
+}
+
+form {
+  position: relative;
+  top: -60px;
+  display: inline;
+}

@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { TimeComponent } from './components/time/time.component';
+import { NameComponent } from './components/name/name.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { TimeComponent } from './components/time/time.component';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
+  @ViewChild(NameComponent) nameComponent;
 }

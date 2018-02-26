@@ -14,8 +14,12 @@ export class SettingsComponent implements OnInit {
 
   }
 
-  toggleMilitaryTime() {
+  toggleMilitaryTime(): void {
     this._settingsService.toggleMilitaryTime()
+  }
+
+  toggleLocationEntry(): void {
+
   }
 
 }

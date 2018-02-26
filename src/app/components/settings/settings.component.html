@@ -2,5 +2,7 @@
   <p>Display military time (24hr)</p>
 </mat-slide-toggle>
 
+<mat-slide-toggle (click)="toggleLocationEntry($event)" [checked]="this._settingsService.locationEntrySetting">
+  <p>Manually Enter Location for Weather Data</p>
+</mat-slide-toggle>
 <p>Reset Name</p>
-<p>Manually Enter Location for Weather Data</p>
