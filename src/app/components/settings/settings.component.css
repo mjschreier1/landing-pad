@@ -1,0 +1,21 @@
+mat-form-field {
+  width: 90%;
+}
+
+#locationSubmit {
+  position: absolute;
+  right: 30px;
+  margin-top: 70px;
+}
+
+.toggles {
+  margin-top: 20px;
+}
+
+#cityField {
+  margin-top: 10px;
+}
+
+button {
+  display: block;
+}

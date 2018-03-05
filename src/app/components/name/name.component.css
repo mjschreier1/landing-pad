@@ -2,6 +2,7 @@ section {
   text-align: center;
   font-size: 2rem;
   color: white;
+  max-height: 70px;
 }
 
 mat-form-field {

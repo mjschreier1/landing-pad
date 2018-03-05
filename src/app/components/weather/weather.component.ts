@@ -8,6 +8,7 @@ import { WeatherService } from '../../services/weather.service';
 })
 export class WeatherComponent implements OnInit {
   weatherData: Object;
+  displayWeather: boolean;
   current: Object;
   wb: string;
   windDirection: string;
@@ -15,11 +16,15 @@ export class WeatherComponent implements OnInit {
   constructor(private _weatherService: WeatherService) { }
 
   ngOnInit() {
+    this._weatherService.displayWeather.subscribe(value => {
+      this.displayWeather = value;
+    })
     this._weatherService.weatherData.subscribe(data => {
       this.weatherData = data;
       this.current = data.currently;
       this.wb = data.currently.windBearing;
       this.calculateWindDirection(this.wb);
+      this._weatherService.displayWeather.next(true);
       console.log(data)
     });
   }

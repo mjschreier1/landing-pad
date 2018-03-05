@@ -15,7 +15,10 @@ mat-drawer-container {
   padding: 20px;
 }
 
-.timeWithoutName {
-  position: relative;
-  top: -110px;
+.timeAndTemp {
+  padding-top: -100px;
+}
+
+app-name {
+  height: 80px !important;
 }

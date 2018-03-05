@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { TimeComponent } from './components/time/time.component';
 import { NameComponent } from './components/name/name.component';
 
@@ -9,4 +9,6 @@ import { NameComponent } from './components/name/name.component';
 })
 export class AppComponent {
   @ViewChild(NameComponent) nameComponent;
+  timeAndTempTop: string = "0px";
+
 }

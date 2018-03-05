@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DateService } from '../../services/date.service';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-name',
@@ -8,7 +9,7 @@ import { DateService } from '../../services/date.service';
 })
 export class NameComponent implements OnInit {
   name: string;
-  hasName: boolean = false;
+  hasName: boolean;
   militaryHours: number;
 
   constructor(private _dateService: DateService) { }
@@ -24,6 +25,8 @@ export class NameComponent implements OnInit {
     if (localStorage.name) {
       this.hasName = true;
       this.name = localStorage.name;
+    } else {
+      this.hasName = false;
     }
   }
 

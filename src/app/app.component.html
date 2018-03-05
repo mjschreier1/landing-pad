@@ -24,13 +24,9 @@
     </nav>
     <main>
       <app-name></app-name>
-      <div *ngIf="hasName">
+      <div id="timeAndTemp" [style.top]="timeAndTempTop">
         <app-time></app-time>
         <app-weather></app-weather>
-      </div>
-      <div *ngIf="!hasName">
-        <app-time class="withoutName"></app-time>
-        <app-weather class="withoutName"></app-weather>
       </div>
     </main>
   </mat-drawer-container>

@@ -1,8 +1,24 @@
-<mat-slide-toggle (click)="toggleMilitaryTime($event)" [checked]="this._settingsService.militaryTimeSetting">
+<button mat-raised-button color="accent" (click)="resetName()">Reset Name</button>
+
+<p *ngIf="resetNameActivated">Please refresh the page to re-enter your name.</p>
+
+<mat-slide-toggle (click)="toggleMilitaryTime($event)" [checked]="this._settingsService.militaryTimeSetting" class="toggles">
   <p>Display military time (24hr)</p>
 </mat-slide-toggle>
 
-<mat-slide-toggle (click)="toggleLocationEntry($event)" [checked]="this._settingsService.locationEntrySetting">
+<mat-slide-toggle (click)="toggleLocationEntry($event)" [checked]="this._weatherService.locationEntrySetting" class="toggles">
   <p>Manually Enter Location for Weather Data</p>
 </mat-slide-toggle>
-<p>Reset Name</p>
+
+<section *ngIf="this._weatherService.locationEntrySetting">
+  <form #manualLocation="ngForm" (ngSubmit)="submitLocation()">
+    <mat-form-field id="cityField">
+      <input matInput placeholder="City" name="city" [(ngModel)]="this._weatherService.city">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="State" name="state" [(ngModel)]="this._weatherService.state">
+    </mat-form-field>
+    <button mat-raised-button color="accent" value="submit" id="locationSubmit">Submit</button>
+  </form>
+</section>
+
