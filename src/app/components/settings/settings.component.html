@@ -3,7 +3,7 @@
 <p *ngIf="resetNameActivated">Please refresh the page to re-enter your name.</p>
 
 <mat-slide-toggle (click)="toggleMilitaryTime($event)" [checked]="this._settingsService.militaryTimeSetting" class="toggles">
-  <p>Display military time (24hr)</p>
+  <p>Display Military Time (24hr)</p>
 </mat-slide-toggle>
 
 <mat-slide-toggle (click)="toggleLocationEntry($event)" [checked]="this._weatherService.locationEntrySetting" class="toggles">
