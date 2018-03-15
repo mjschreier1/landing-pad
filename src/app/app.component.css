@@ -14,11 +14,3 @@ mat-drawer-container {
   max-width: 400px;
   padding: 20px;
 }
-
-.timeAndTemp {
-  padding-top: -100px;
-}
-
-app-name {
-  height: 80px !important;
-}

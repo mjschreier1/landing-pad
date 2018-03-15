@@ -10,26 +10,26 @@ import { WeatherService } from '../../services/weather.service';
 export class SettingsComponent implements OnInit {
   resetNameActivated: boolean = false;
 
-  constructor(private _settingsService: SettingsService, private _weatherService: WeatherService) { }
+  constructor(public settingsService: SettingsService, public weatherService: WeatherService) { }
 
   ngOnInit() {
   }
 
   toggleMilitaryTime(): void {
-    this._settingsService.toggleMilitaryTime();
+    this.settingsService.toggleMilitaryTime();
   }
 
   toggleLocationEntry(): void {
-    this._settingsService.toggleLocationEntrySetting();
-    if (this._weatherService.locationEntrySetting === true) {
-      this._weatherService.submitLocation();
+    this.settingsService.toggleLocationEntrySetting();
+    if (this.weatherService.locationEntrySetting === true) {
+      this.weatherService.submitLocation();
     };
   }
 
   submitLocation(): void {
-    this._weatherService.displayWeather.next(false);
-    this._settingsService.storeManualLocation();
-    this._weatherService.submitLocation();
+    this.weatherService.displayWeather.next(false);
+    this.settingsService.storeManualLocation();
+    this.weatherService.submitLocation();
   }
 
   resetName(): void {
